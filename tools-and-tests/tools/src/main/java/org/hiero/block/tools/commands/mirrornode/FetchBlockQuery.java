@@ -5,11 +5,11 @@ import static org.hiero.block.tools.commands.mirrornode.MirrorNodeUtils.MAINNET_
 
 import com.google.gson.JsonObject;
 import com.hedera.pbj.runtime.io.buffer.Bytes;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HexFormat;
 import java.util.List;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 
 /**
  * Query Mirror Node and fetch block information
@@ -86,8 +86,7 @@ public class FetchBlockQuery {
                 if (ts == null || ts.isBlank()) {
                     continue;
                 }
-                url.append("&timestamp=")
-                        .append(URLEncoder.encode(ts, StandardCharsets.UTF_8));
+                url.append("&timestamp=").append(URLEncoder.encode(ts, StandardCharsets.UTF_8));
             }
         }
 
